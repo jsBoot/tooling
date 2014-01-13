@@ -12,7 +12,9 @@
   },
   "main": [
     "build/compounds/js/tooling.testing.js",
-    "build/compounds/css/tooling.testing.css"
+    "build/compounds/css/tooling.testing.css",
+    "build/compounds/js/tooling.demo.js",
+    "build/compounds/css/tooling.demo.css"
   ],
   "ignore": [
     "**/.*",
