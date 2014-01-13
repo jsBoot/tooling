@@ -178,6 +178,20 @@
     });
 
     /**
+     * Hinting
+     */
+    grunt.config('jshint.all', {
+      src: [
+        kingPin.config.dirs.src + '/**/' + kingPin.config.types.javascript,
+        kingPin.config.dirs.tests + '/**/' + kingPin.config.types.javascript,
+        kingPin.config.types.javascript,
+        '!' + kingPin.config.dirs.src + '/**/' + kingPin.config.types.avoid,
+        '!' + kingPin.config.types.avoid
+      ]
+    });
+
+
+    /**
      * Actual dependencies to extract
      */
 
@@ -218,6 +232,12 @@
           kingPin.config.dirs.build + '/source.dependencies/css/jasmine.*.css'
         ],
         dest: kingPin.config.dirs.build + '/source.dependencies/css/tooling.testing.css'
+      }, {
+        src: [
+          kingPin.config.dirs.build + '/source.dependencies/css/bootstrap.css',
+          kingPin.config.dirs.build + '/source.dependencies/css/bootstrap.*.css'
+        ],
+        dest: kingPin.config.dirs.build + '/source.dependencies/css/tooling.demo.css'
       }]
     });
 
@@ -231,6 +251,12 @@
           kingPin.config.dirs.build + '/source.dependencies/js/jasmine.*.js'
         ],
         dest: kingPin.config.dirs.build + '/compounds/js/tooling.testing.js'
+      }, {
+        src: [
+          kingPin.config.dirs.build + '/source.dependencies/js/jquery.js',
+          kingPin.config.dirs.build + '/source.dependencies/js/bootstrap.js'
+        ],
+        dest: kingPin.config.dirs.build + '/compounds/js/tooling.demo.js'
       }]
     });
 
@@ -238,6 +264,9 @@
       files: [{
         src: kingPin.config.dirs.build + '/source.dependencies/css/tooling.testing.css',
         dest: kingPin.config.dirs.build + '/compounds/css/tooling.testing.css'
+      }, {
+        src: kingPin.config.dirs.build + '/source.dependencies/css/tooling.demo.css',
+        dest: kingPin.config.dirs.build + '/compounds/css/tooling.demo.css'
       }]
     });
 
@@ -302,6 +331,8 @@
     ]);
 
     grunt.registerTask('default', ['source', 'build']);
+
+    grunt.registerTask('hint', ['jshint']);
   };
 })();
 
