@@ -18,7 +18,19 @@
 
     this.packageJson = grunt.file.readJSON('package.json');
 
+    this.savePackageJson = function(){
+      grunt.file.write('package.json', JSON.stringify(this.packageJson));
+    };
+
     var bowerRc = grunt.file.readJSON('.bowerrc');
+
+    this.bowerJson = grunt.file.readJSON(bowerRc.json);
+
+    this.saveBowerJson = function(){
+      grunt.file.write(bowerRc.json, JSON.stringify(this.bowerJson));
+    };
+
+
 
     var templatedFiles = /[.](?:html|js|css|txt|json)$/;
     this.config = {
@@ -176,6 +188,37 @@
         kingPin.config.dirs.dist
       ]
     });
+
+    grunt.registerTask('tag', function(type){
+      var ver = kingPin.packageJson.version.split('.');
+      switch(type){
+        case 'major':
+          ver[0]++;
+          ver[1] = 0;
+          ver[2] = 0;
+        break;
+        case 'minor':
+          ver[1]++;
+          ver[2] = 0;
+        break;
+        default:
+          ver[2]++;
+        break;
+      }
+      kingPin.packageJson.version = ver.join('.');
+      kingPin.bowerJson.version = ver.join('.');
+      kingPin.savePackageJson();
+      kingPin.saveBowerJson();
+
+      console.warn('---> ', ver.join('.'));
+      // grunt.config('gittag', {
+      //   options: {
+      //     tag: ver.join('.'),
+      //     message: 'Version bump'
+      //   }
+      // });
+      // grunt.executeTask('gittag');
+   });
 
     /**
      * Hinting

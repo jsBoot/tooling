@@ -1,6 +1,6 @@
 {
   "name": "tooling",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Tooling / testing / documenting / bla",
   "keywords": [
     "toolin'",
@@ -74,7 +74,8 @@
     "karma-osx-reporter": "0.0.4",
     "karma-sauce-launcher": "~0.1.7",
     "karma-browserstack-launcher": "0.0.7",
-    "grunt-jsdoc": "~0.5.1"
+    "grunt-jsdoc": "~0.5.1",
+    "grunt-git": "~0.2.4"
   },
   "directories": {
     "tmp": ".tmp",
