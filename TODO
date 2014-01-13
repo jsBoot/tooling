@@ -1,3 +1,4 @@
 - migrate to jasmine 2
 - add jsdoc components
 - add syntax highlighting components
+- use normalize + h5bp fragment to enhance old support
