@@ -1,6 +1,6 @@
 {
   "name": "tooling",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Tooling / testing / documenting / bla",
   "keywords": [
     "toolin'",
@@ -83,7 +83,8 @@
     "tests": "tests",
     "dist": "dist",
     "doc": "doc",
-    "build": "build"
+    "build": "build",
+    "dependencies": "dependencies"
   },
   "config": {
     "ln": "en-us"
