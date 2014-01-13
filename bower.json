@@ -1,0 +1,24 @@
+{
+  "name": "tooling",
+  "version": "0.1.0",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "jasmine": "1.3.1",
+    "jasmine-reporters": "master",
+    "jasmine-bootstrap": "jsBoot/jasmine-bootstrap#master",
+    "bootstrap": "3.0.3",
+    "jquery": "1.10.2"
+  },
+  "main": [
+    "build/compounds/js/tooling.testing.js",
+    "build/compounds/css/tooling.testing.css"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "dependencies",
+    "build/app",
+    ".*"
+  ]
+}
